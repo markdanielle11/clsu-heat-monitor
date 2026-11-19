@@ -1,0 +1,18 @@
+# Render Blueprint. New > Blueprint, point at this repo.
+# Use a free Postgres from Supabase or Neon and paste its connection string into DATABASE_URL.
+services:
+  - type: web
+    name: clsu-heat-monitor-api
+    runtime: docker
+    rootDir: backend
+    plan: starter            # "free" sleeps when idle and then misses scheduled checks; see README
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_API_KEY
+        generateValue: true
+      - key: TOKEN_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
