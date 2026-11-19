@@ -14,5 +14,7 @@ services:
         generateValue: true
       - key: TOKEN_SECRET
         generateValue: true
+      - key: CORS_ORIGINS
+        value: https://markdanielle11.github.io
       - key: NODE_ENV
         value: production
