@@ -5,7 +5,7 @@ services:
     name: clsu-heat-monitor-api
     runtime: docker
     rootDir: backend
-    plan: starter            # "free" sleeps when idle and then misses scheduled checks; see README
+    plan: free               # no card needed. Sleeps after 15 min idle; the GitHub Actions workflow wakes it every 15 min (see README)
     healthCheckPath: /api/health
     envVars:
       - key: DATABASE_URL
